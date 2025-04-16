@@ -23,7 +23,7 @@ Navigate to the `build-a-simple-containerised-application` directory within the 
 
 ## Application 1: 2048 Game
 
-![2048 Diagram](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/build-a-simple-containerised-application/2048_game.png)  
+![2048 Diagram](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/2048_game.png)  
 *Diagram: Illustrates the build process and deployment of the 2048 game using Docker.*
 
 ### Creating a Docker Image
@@ -47,7 +47,7 @@ Build the Docker image by running:
 docker build -t dockerized-2048 .
 ```
 
-![Building Docker Image](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/build-a-simple-containerised-application/building_image.png)
+![Building Docker Image](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/building_image.png)
 
 This process creates two layers:
 - The base `nginx` image layer  
@@ -79,11 +79,11 @@ docker ps
 docker port <CONTAINER_ID>
 ```
 
-![Running 2048 Container](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/build-a-simple-containerised-application/ran_docker_image_2048.png)
+![Running 2048 Container](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/ran_docker_image_2048.png)
 
 5. Open a browser and visit [http://localhost:8081](http://localhost:8081) to access the game.
 
-[Download .mov file](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/build-a-simple-containerised-application/2048_game_demo.mov)
+[Download .mov file](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/2048_game_demo.mov)
 
 ### Cleanup
 
@@ -94,7 +94,7 @@ docker stop <CONTAINER_ID>
 docker rm <CONTAINER_ID>
 ```
 
-![Container Cleanup](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/build-a-simple-containerised-application/container_cleanup.png)
+![Container Cleanup](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/container_cleanup.png)
 
 ---
 
@@ -121,7 +121,7 @@ Build the image with:
 docker build -t containerofcats .
 ```
 
-![Building Container of Cats](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/build-a-simple-containerised-application/building_coc.png)
+![Building Container of Cats](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/building_coc.png)
 
 Despite a similar architecture (static files served via a web server), this image builds slower and consumes more resources.
 
@@ -148,11 +148,11 @@ docker ps
 docker port <CONTAINER_ID>
 ```
 
-![Running Container](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/build-a-simple-containerised-application/ran_coc.png)
+![Running Container](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/ran_coc.png)
 
 5. Visit [http://localhost:8081](http://localhost:8081) in your browser to view the application.
 
-![Web Output – Cats](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/build-a-simple-containerised-application/coc_web_image.png)
+![Web Output – Cats](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/coc_web_image.png)
 
 ### Cleanup
 
