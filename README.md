@@ -1,19 +1,58 @@
-# Docker Fundamentals – Adrian Cantrill Course
+# 🐳 Docker Fundamentals — Learning by Doing
 
-This repository contains my documentation, mini projects, and hands-on work based on **Adrian Cantrill’s Docker Fundamentals training course**.
+Welcome to the **Docker Fundamentals** repo — a hands-on companion to learning Docker based on [Adrian Cantrill's Docker course](https://learn.cantrill.io/p/docker-fundamentals).
 
-The course covers the **core concepts of Docker**, including:
+This repo is designed for **learning by doing** — each section contains interactive, practical demonstrations of key Docker concepts, helping you go from beginner to confident user.
 
-- Creating and managing Docker containers from scratch  
-- Deploying applications across various environments using Docker  
-- Working with persistent storage for containers  
-- Exploring Docker networking features  
-- An introduction to orchestration concepts  
+---
 
-It includes both **theoretical lessons** and **practical exercises**, with demo projects that reflect real-world scenarios.  
+## 🧪 Demos
 
-Through this training, I developed a strong understanding of Docker's inner workings and how to apply it effectively. The included mini projects helped bridge the gap between learning and real-world usage.
+A growing collection of Docker demonstrations with real commands, screenshots, and results:
 
-After completing the course, I’m confident in my foundational Docker skills and plan to build on them by creating and showcasing **real-world, Docker-based projects** on my GitHub.
+| Demo | Description |
+|------|-------------|
+| [Working with Existing Docker Images](./demos/Working-with-existing-docker-images.md) | Pulling images, running containers, inspecting and managing them locally |
+
+*More demos coming soon...*
+
+---
+
+## 🧠 Topics Covered
+
+- Installing Docker
+- Pulling & inspecting images
+- Running containers (attached & detached)
+- Port mapping
+- Container lifecycle commands
+- Interacting with containers (exec, logs, restart)
+- Clean-up strategies
+- ...and more, soon to include:
+  - Dockerfiles
+  - Custom images
+  - Docker Compose
+  - Volumes & networks
+  - DockerHub uploads
+
+---
+
+## 🚀 Getting Started
+
+Clone the repo:
+
+```bash
+git clone https://github.com/JThomas404/docker-course-adrian-cantrill.git
+cd docker-course-adrian-cantrill
+```
+
+Make sure Docker is installed and running on your machine. Then dive into the `demos/` folder and start experimenting!
+
+---
+
+## 🙏 Credits
+
+This repo was created while following along with [Adrian Cantrill's Docker Fundamentals course](https://learn.cantrill.io/p/docker-fundamentals).
+
+**PS**: Much of the structure and examples are adapted from Adrian's course repo, with additions and images for enhanced hands-on learning.
 
 ---

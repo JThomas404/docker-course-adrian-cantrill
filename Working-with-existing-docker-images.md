@@ -21,7 +21,7 @@ Pull the image:
 docker pull acantril/containerofcats
 ```
 
-![Pulled Docker Image](images/pulled_docker_image.png)
+![Pulled Docker Image](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/pulled_docker_image.png)
 
 *You’ll notice it pulls several filesystem layers...*
 
@@ -41,7 +41,7 @@ Inspect an image:
 docker inspect <IMAGE_ID>
 ```
 
-![Docker Inspect](images/docker_inspect.png)
+![Docker Inspect](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/docker_inspect.png)
 
 ---
 
@@ -54,7 +54,7 @@ docker run -p 8081:80 acantril/containerofcats
 > Open your browser and navigate to `http://localhost:8081` — see the cats?  
 > Note: The terminal is now attached to the container. Press `Ctrl+C` to stop it — this will also stop the container.
 
-![Port Mapping](images/port_mapping.png)
+![Port Mapping](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/port_mapping.png)
 
 Check container status:
 
@@ -64,7 +64,7 @@ docker ps
 
 Confirmation that we can now access the website on port 8081:
 
-![Container of Cats](images/container_of_cats.png)
+![Container of Cats](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/container_of_cats.png)
 
 ---
 
@@ -74,7 +74,7 @@ Confirmation that we can now access the website on port 8081:
 docker run -p 8081:80 -d acantril/containerofcats
 ```
 
-![Detached Mode](images/detached_mode.png)
+![Detached Mode](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/detached_mode.png)
 
 > This runs the container in the background, and your terminal will remain free.
 
@@ -125,7 +125,7 @@ Start a stopped container:
 docker start <CONTAINER_ID>
 ```
 
-![Interacting with Containers](images/interacting_with_containers.png)
+![Interacting with Containers](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/interacting_with_containers.png)
 
 ---
 
