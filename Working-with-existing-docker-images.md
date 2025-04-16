@@ -174,6 +174,5 @@ docker rmi <IMAGE_ID>
 ---
 
 **PS**: This documentation was adapted from Adrian Cantrill's Docker Fundamentals course repository.
-```
 
 ---

@@ -12,7 +12,11 @@ A growing collection of Docker demonstrations with real commands, screenshots, a
 
 | Demo | Description |
 |------|-------------|
-| [Working with Existing Docker Images](./demos/Working-with-existing-docker-images.md) | Pulling images, running containers, inspecting and managing them locally |
+| [Working with Existing Docker Images](./demos/working-with-existing-docker-images.md) | Pull, inspect, and run containers using public images from Docker Hub |
+| [Docker Container Volumes](./demos/docker-container-volumes.md) | Use bind mounts and volumes to persist container data |
+| [Docker Container Environment Variables](./demos/docker-container-environment-variables.md) | Pass environment variables to containers at runtime |
+| [Build a Simple Containerised Application](./demos/build-a-simple-containerised-application.md) | Build a Docker image for a basic app using a custom Dockerfile |
+| [Docker Compose](./demos/docker-compose.md) | Define and manage multi-container applications using `docker-compose.yml` |
 
 *More demos coming soon...*
 
@@ -24,15 +28,14 @@ A growing collection of Docker demonstrations with real commands, screenshots, a
 - Pulling & inspecting images
 - Running containers (attached & detached)
 - Port mapping
+- Volumes and data persistence
+- Environment variables
+- Dockerfiles and image building
+- Docker Compose
 - Container lifecycle commands
-- Interacting with containers (exec, logs, restart)
+- Interacting with containers (`exec`, logs, restart)
 - Clean-up strategies
-- ...and more, soon to include:
-  - Dockerfiles
-  - Custom images
-  - Docker Compose
-  - Volumes & networks
-  - DockerHub uploads
+- ...and more to come
 
 ---
 
