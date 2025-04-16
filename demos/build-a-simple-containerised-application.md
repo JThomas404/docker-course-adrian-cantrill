@@ -2,146 +2,128 @@
 
 ## Overview
 
-This project showcases two containerised web applications built using Docker. The goal is to demonstrate hands-on proficiency in containerising both optimised and suboptimal web applications, highlighting the impact of Dockerfile best practices on image performance and efficiency.
+This project demonstrates the creation and optimisation of two containerised web applications using Docker. The objective is to show practical proficiency in:
 
-### Key Concepts Demonstrated:
-- Writing and optimising Dockerfiles
-- Building and managing Docker images
-- Running and exposing containers with appropriate port mapping
-- Comparing base image selection and layer efficiency
-- Cleaning up Docker resources to manage local development environments
+- Writing efficient Dockerfiles
+- Managing Docker images and containers
+- Applying Dockerfile best practices to reduce image size and build time
+- Understanding the effects of different base image selections and layer strategies
+- Managing Docker resources to maintain clean development environments
 
 ---
 
 ## Prerequisites
 
-Ensure that you have cloned or downloaded the course GitHub repository to your local machine.
+Before proceeding, clone or download the course GitHub repository.
 
-Navigate to the `build-a-simple-containerised-application` directory within the course repository.
+Navigate to the `build-a-simple-containerised-application` directory.
 
 ---
 
 ## Application 1: 2048 Game
 
-![2048 Diagram](https://raw.githubusercontent.com/dennisbyrne/containerisation-course-docs/main/docs/build-a-simple-containerised-application/files/2048-game.png)  
+![2048 Diagram](https://raw.githubusercontent.com/dennisbyrne/containerisation-course-docs/main/docs/build-a-simple-containerised-application/images/2048_game.png)  
 *Diagram: Illustrates the build process and deployment of the 2048 game using Docker.*
 
-### Creating a Docker Image
+### Creating the Docker Image
 
-1. Navigate to the `app1-2048` directory.
-2. Open the `Dockerfile` in your preferred text editor.
+1. Navigate to `app1-2048`.
+2. Open the `Dockerfile`.
 
-This Dockerfile consists of five key instructions: `FROM`, `LABEL`, `COPY`, `EXPOSE`, and `CMD`. Each contributes a layer during the Docker image build process.
+The Dockerfile contains the following key instructions: `FROM`, `LABEL`, `COPY`, `EXPOSE`, and `CMD`.
 
-Key points:
+**Highlights:**
 
-- **Base Image**: The build starts from the `nginx:latest` base image, which includes a preconfigured web server.
-- **Metadata**: A `LABEL` is used to define the image maintainer.
-- **Copying Files**: The `COPY` command transfers the contents of the local `2048/` directory into `/usr/share/nginx/html` inside the image.
-- **Port Exposure**: `EXPOSE 80` specifies that the application will be served on port 80.
-- **Container Startup**: The `CMD` sets the default command that runs when the container starts.
+- **FROM**: Uses `nginx:latest` as a pre-configured web server.
+- **LABEL**: Adds metadata.
+- **COPY**: Moves local files to `/usr/share/nginx/html` in the container.
+- **EXPOSE**: Declares port 80 for external access.
+- **CMD**: Specifies default command for the container.
 
-Build the Docker image by running:
+Build the Docker image:
 
 ```bash
 docker build -t dockerized-2048 .
 ```
 
-![Building Docker Image](https://raw.githubusercontent.com/dennisbyrne/containerisation-course-docs/main/docs/build-a-simple-containerised-application/images/building_image.png)
+![Building Image](https://raw.githubusercontent.com/dennisbyrne/containerisation-course-docs/main/docs/build-a-simple-containerised-application/images/building_image.png)
 
-This process creates two layers:
-- The base `nginx` image layer.
-- A layer for the application files copied via the `COPY` instruction.
+This creates:
+
+- A base image layer (`nginx`)
+- An application layer (`COPY`)
 
 ### Running the Docker Container
 
-1. List available images:
+1. List images:
 
 ```bash
 docker images
 ```
 
 2. Identify the `dockerized-2048` image.
-
-3. Run the container in detached mode with port mapping:
+3. Start the container:
 
 ```bash
 docker run -d -p 8081:80 dockerized-2048
 ```
 
-- `-d`: Detached mode (runs in background).
-- `-p`: Maps port 8081 on the host to port 80 in the container.
-
-4. Verify the container is running:
+4. Confirm it’s running:
 
 ```bash
 docker ps
 docker port <CONTAINER_ID>
 ```
 
-![Running 2048 Container](https://raw.githubusercontent.com/dennisbyrne/containerisation-course-docs/main/docs/build-a-simple-containerised-application/images/ran_docker_image_2048.png)
+![Running Container](https://raw.githubusercontent.com/dennisbyrne/containerisation-course-docs/main/docs/build-a-simple-containerised-application/images/ran_docker_image_2048.png)
 
-5. Open a browser and visit [http://localhost:8081](http://localhost:8081) to access the game.
+5. Open [http://localhost:8081](http://localhost:8081) in your browser.
 
-[Download .mov file](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/2048_game_demo.mov)
+📽️ [Download .mov file](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/2048_game_demo.mov)
 
 ### Cleanup
-
-To stop and remove the container:
 
 ```bash
 docker stop <CONTAINER_ID>
 docker rm <CONTAINER_ID>
 ```
 
-![Container Cleanup](https://raw.githubusercontent.com/dennisbyrne/containerisation-course-docs/main/docs/build-a-simple-containerised-application/images/container_cleanup.png)
+![Cleanup](https://raw.githubusercontent.com/dennisbyrne/containerisation-course-docs/main/docs/build-a-simple-containerised-application/images/container_cleanup.png)
 
 ---
 
 ## Application 2: Container of Cats
 
-This example demonstrates a less optimised Dockerfile to highlight inefficiencies in image design.
+This second application intentionally uses a less optimised Dockerfile to demonstrate inefficiencies.
 
 ### Creating the Docker Image
 
-1. Navigate to the `app2-containerofcats` directory.
-2. Open the `Dockerfile`.
+1. Navigate to `app2-containerofcats`.
+2. Review the `Dockerfile`.
 
-Differences from the previous example:
+**Differences:**
 
-- **Base Image**: Uses `ubi8`, a general-purpose Red Hat UBI 8 image, as opposed to the more lightweight `nginx` image.
-- **Installation Step**: Requires explicit installation of a web server (Apache) via a `RUN` command.
-- **File Copying**: Two `COPY` instructions copy the `index.html` and JPEG assets into the image, creating additional layers.
+- **Base Image**: `ubi8`, a larger Red Hat image
+- **RUN**: Manually installs Apache
+- **COPY**: Two separate instructions for `index.html` and images
 
-This approach results in a larger and slower-to-build image due to the less specialised base image and multiple layers.
-
-Build the image with:
+Build the image:
 
 ```bash
 docker build -t containerofcats .
 ```
 
-![Building Container of Cats](https://raw.githubusercontent.com/dennisbyrne/containerisation-course-docs/main/docs/build-a-simple-containerised-application/images/building_coc.png)
+![Building Image](https://raw.githubusercontent.com/dennisbyrne/containerisation-course-docs/main/docs/build-a-simple-containerised-application/images/building_coc.png)
 
-Despite a similar architecture (static files served via a web server), this image builds slower and consumes more resources.
+This version is slower to build and larger due to a less efficient base image and multiple layers.
 
 ### Running the Container
-
-1. List available images:
-
-```bash
-docker images
-```
-
-2. Locate the `containerofcats` image.
-
-3. Run the container with:
 
 ```bash
 docker run -d -p 8081:80 containerofcats
 ```
 
-4. Confirm the container is running:
+Verify it’s active:
 
 ```bash
 docker ps
@@ -150,13 +132,11 @@ docker port <CONTAINER_ID>
 
 ![Running Container](https://raw.githubusercontent.com/dennisbyrne/containerisation-course-docs/main/docs/build-a-simple-containerised-application/images/ran_coc.png)
 
-5. Visit [http://localhost:8081](http://localhost:8081) in your browser to view the application.
+Access it at [http://localhost:8081](http://localhost:8081)
 
-![Web Output – Cats](https://raw.githubusercontent.com/dennisbyrne/containerisation-course-docs/main/docs/build-a-simple-containerised-application/images/coc_web_image.png)
+![Rendered Site](https://raw.githubusercontent.com/dennisbyrne/containerisation-course-docs/main/docs/build-a-simple-containerised-application/images/coc_web_image.png)
 
 ### Cleanup
-
-To stop and remove the container:
 
 ```bash
 docker stop <CONTAINER_ID>
