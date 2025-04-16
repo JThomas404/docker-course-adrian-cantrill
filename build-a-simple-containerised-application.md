@@ -1,3 +1,6 @@
+Certainly! Below is your Markdown formatted with the image links as per your request:
+
+```markdown
 # Project: Building Simple Containerised Applications with Docker
 
 ## Overview
@@ -46,19 +49,19 @@ docker build -t dockerized-2048 .
 ```
 
 **Build output:**  
-![2048 Build Output](https://raw.githubusercontent.com/JThomas404/docker-course-adrian-cantrill/main/images/2048-build.png)
+![2048 Build Output](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/2048-build.png)
 
 ```bash
 docker run -d -p 8081:80 dockerized-2048
 ```
 
 **Running container:**  
-![2048 Container Running](https://raw.githubusercontent.com/JThomas404/docker-course-adrian-cantrill/main/images/2048-running.png)
+![2048 Container Running](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/2048-running.png)
 
 Open the application in a browser at `http://localhost:8081`.
 
 **Accessed in browser:**  
-![2048 in Browser](https://raw.githubusercontent.com/JThomas404/docker-course-adrian-cantrill/main/images/2048-browser.png)
+![2048 in Browser](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/2048-browser.png)
 
 ---
 
@@ -108,19 +111,19 @@ docker build -t containerofcats .
 ```
 
 **Build output:**  
-![Container of Cats Build Output](https://raw.githubusercontent.com/JThomas404/docker-course-adrian-cantrill/main/images/containerofcats-build.png)
+![Container of Cats Build Output](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/containerofcats-build.png)
 
 ```bash
 docker run -d -p 8081:80 containerofcats
 ```
 
 **Running container:**  
-![Container of Cats Container Running](https://raw.githubusercontent.com/JThomas404/docker-course-adrian-cantrill/main/images/containerofcats-running.png)
+![Container of Cats Container Running](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/containerofcats-running.png)
 
 Open the application in a browser at `http://localhost:8081`.
 
 **Accessed in browser:**  
-![Container of Cats in Browser](https://raw.githubusercontent.com/JThomas404/docker-course-adrian-cantrill/main/images/containerofcats-browser.png)
+![Container of Cats in Browser](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/containerofcats-browser.png)
 
 ---
 
