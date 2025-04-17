@@ -1,153 +1,153 @@
-## Working with Docker Images
+# **Working with Existing Docker Images**
 
-This guide demonstrates how to pull and manage Docker images, run containers, and interact with them, following best practices for clarity and efficiency. It's designed to be easily understood by both developers and hiring managers, providing clear steps for anyone unfamiliar with Docker.
+This guide walks you through how to pull and manage Docker images, run containers, and interact with them using best practices. Whether you're a developer or a hiring manager evaluating technical skills, this document provides a straightforward, hands-on introduction to Docker.
 
 ---
 
-### 1. Verifying What’s Currently on the Docker Host
+## **1. Checking Your Docker Environment**
 
-Before interacting with Docker containers, it’s important to know what is already running on your system. These commands allow you to inspect the status of Docker containers and images.
+Before launching or managing containers, it’s important to understand your current Docker environment.
 
-#### List Running Containers
+### View Running Containers
 
 ```bash
 docker ps
 ```
 
-This command will show all running containers. It’s essential for identifying which containers are currently active on your Docker host.
+Displays all containers currently running on your host. Useful for identifying active applications and services.
 
-#### List All Docker Images
+### List Available Docker Images
 
 ```bash
 docker images
 ```
 
-This command lists all available images, including those that are not actively running. It's helpful for identifying which images can be used to create new containers.
+Shows all locally stored images, regardless of whether they’re currently in use. These images can be used to create new containers.
 
 ---
 
-### 2. Pulling an Existing Image from Docker Hub
+## **2. Pulling an Image from Docker Hub**
 
-Docker Hub is the default public repository for Docker images. To use an image from Docker Hub, follow these steps:
+Docker Hub is the default registry for publicly available Docker images.
 
-#### Step 1: Visit Docker Hub
+### Step 1: Find Your Image
 
-- Go to [hub.docker.com](https://hub.docker.com/)
-- Search for the image you need (e.g., `containerofcats`)
+- Navigate to [hub.docker.com](https://hub.docker.com/)
+- Search for the required image (e.g., `containerofcats`)
 
-#### Step 2: Pull the Image
-
-After selecting the desired image, use the following command to pull it to your local machine:
+### Step 2: Pull the Image
 
 ```bash
 docker pull acantril/containerofcats
 ```
 
-This command downloads the image `acantril/containerofcats` from Docker Hub to your local machine.
+This command downloads the `acantril/containerofcats` image to your local system.
 
 ![Image Pull](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/pulled_docker_image.png)
 
 ---
 
-### 3. Running a Container from the Image
+## **3. Running a Container from an Image**
 
-Once you have the image locally, you can start a container based on it.
+With the image downloaded, you can now start a container.
 
-#### Run a Container with Port Mapping
+### Start a Container with Port Mapping
 
 ```bash
 docker run -p 8081:80 acantril/containerofcats
 ```
 
-This command runs a container from the `acantril/containerofcats` image and maps port 80 in the container to port 8081 on your local machine. You can now access the application in your browser at `http://localhost:8081`.
+This maps port `80` inside the container to port `8081` on your host machine. Open your browser and go to:
+
+```
+http://localhost:8081
+```
 
 ![Container Running](https://github.com/JThomas404/docker-course-adrian-cantrill/raw/main/images/container_of_cats.png)
 
 ---
 
-### 4. Running Containers in Detached Mode
+## **4. Running Containers in Detached Mode**
 
-Running containers in detached mode allows them to run in the background, freeing up the terminal for other tasks.
+Detached mode allows containers to run in the background, keeping your terminal free.
 
-#### Start a Container in Detached Mode
+### Run in Background (Detached)
 
 ```bash
 docker run -p 8081:80 -d acantril/containerofcats
 ```
 
-The `-d` flag runs the container in detached mode.
+The `-d` flag ensures the container runs in the background.
 
-#### Verify Container Status
-
-To confirm that your container is running in detached mode, use:
+### Confirm It’s Running
 
 ```bash
 docker ps
 ```
 
-This command will show you all running containers, including those in detached mode.
+Use this to verify that your container is running in detached mode.
 
 ---
 
-### 5. Interacting with Running Containers
+## **5. Interacting with Containers**
 
-Docker containers are not just passive entities; you can interact with them to perform tasks, troubleshoot, or inspect logs.
+Once your container is running, you can execute commands or troubleshoot issues.
 
-#### Execute a Command Inside the Container
-
-To execute a command inside a running container (for example, listing running processes):
+### Run a Command Inside the Container
 
 ```bash
-docker exec -it <CONTAINER_ID> ps -aux
+docker exec -it <CONTAINER_ID> ps aux
 ```
 
-#### Open a Shell Inside the Container
+Replace `<CONTAINER_ID>` with the actual container ID. This example shows running processes.
 
-For more direct interaction, you can start an interactive shell inside the container:
+### Open an Interactive Shell
 
 ```bash
 docker exec -it <CONTAINER_ID> sh
 ```
 
-This allows you to explore the container’s file system, install additional software, or run commands interactively.
+Opens a shell inside the container so you can navigate the file system or run interactive commands.
 
 ---
 
-### 6. Viewing Container Logs
+## **6. Viewing Container Logs**
 
-Logs are essential for troubleshooting and monitoring containers. Use the following command to view logs from a running container:
+Logs provide insight into your container’s runtime behaviour.
+
+### View Logs
 
 ```bash
 docker logs <CONTAINER_ID>
 ```
 
-For more detailed logs, including timestamps, use:
+### View Logs with Timestamps
 
 ```bash
-docker logs <CONTAINER_ID> -t
+docker logs -t <CONTAINER_ID>
 ```
+
+Use these logs for debugging and monitoring.
 
 ---
 
-### 7. Stopping, Removing, and Cleaning Up Containers
+## **7. Stopping and Removing Containers & Images**
 
-After finishing with a container, it's good practice to stop and clean it up to free up system resources.
+Cleaning up after you're finished helps keep your system efficient and tidy.
 
-#### Stop a Running Container
+### Stop a Running Container
 
 ```bash
 docker stop <CONTAINER_ID>
 ```
 
-#### Remove a Stopped Container
+### Remove a Stopped Container
 
 ```bash
 docker rm <CONTAINER_ID>
 ```
 
-#### Remove an Image
-
-If you no longer need an image, you can remove it as well:
+### Remove an Image
 
 ```bash
 docker rmi <IMAGE_ID>
@@ -155,20 +155,22 @@ docker rmi <IMAGE_ID>
 
 ---
 
-### 8. Final Clean-Up
+## **8. System Clean-Up**
 
-After working with Docker, ensure that your system is clean by removing any unused containers or images that are taking up space.
+Perform regular clean-ups to maintain optimal system performance.
 
-- **List all containers (including stopped ones):**
+### List All Containers (Including Stopped)
 
 ```bash
 docker ps -a
 ```
 
-- **List all images:**
+### List All Images
 
 ```bash
 docker images
 ```
+
+This allows you to identify unused or outdated resources and remove them if needed.
 
 ---
