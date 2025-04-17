@@ -12,7 +12,7 @@ A growing collection of Docker demonstrations with real commands, screenshots, a
 
 | Demo | Description |
 |------|-------------|
-| [Working with Existing Docker Images](demos/Working-with-existing-docker-images.md) | Pull, inspect, and run containers using public images from Docker Hub |
+| [Working with Existing Docker Images](demos/working-with-existing-docker-images.md) | Pull, inspect, and run containers using public images from Docker Hub |
 | [Docker Container Volumes](demos/docker-container-volumes.md) | Use bind mounts and volumes to persist container data |
 | [Docker Container Environment Variables](demos/docker-container-environment-variables.md) | Pass environment variables to containers at runtime |
 | [Build a Simple Containerised Application](demos/build-a-simple-containerised-application.md) | Build a Docker image for a basic app using a custom Dockerfile |
