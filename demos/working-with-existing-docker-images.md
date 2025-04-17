@@ -1,4 +1,4 @@
-## working with Docker Images
+## Working with Docker Images
 
 This guide demonstrates how to pull and manage Docker images, run containers, and interact with them, following best practices for clarity and efficiency. It's designed to be easily understood by both developers and hiring managers, providing clear steps for anyone unfamiliar with Docker.
 
