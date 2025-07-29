@@ -189,7 +189,3 @@ A growing collection of Docker demonstrations with real commands, screenshots, a
 This repository was created whilst following [Adrian Cantrill Docker Fundamentals course](https://learn.cantrill.io/p/docker-fundamentals), with practical implementations and real-world applications added to demonstrate professional Docker competency.
 
 ---
-
-📧 jarredthomas101@gmail.com | 🌐 [www.jarredthomas.cloud](http://www.jarredthomas.cloud) | 💼 [LinkedIn](https://linkedin.com/in/jarred-thomas)
-
----
